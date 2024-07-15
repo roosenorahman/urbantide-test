@@ -24,6 +24,17 @@ const insertDataIntoDb = async (data) => {
     }
 }
 
+const getData = async () => {
+    const client = await pool.connect()
+    try {
+        const res = await client.query('SELECT * from test_table')
+        return res.rows
+    } finally {
+        client.release()
+    }
+}
+
 module.exports = {
-    insertDataIntoDb
+    insertDataIntoDb,
+    getData
 }

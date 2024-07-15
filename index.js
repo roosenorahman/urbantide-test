@@ -2,14 +2,14 @@ const express = require('express')
 require('dotenv').config()
 
 const { upload, processCsvFile, removeFile } = require('./helpers/files')
-const { insertDataIntoDb } = require('./helpers/database')
+const { insertDataIntoDb, getData } = require('./helpers/database')
 const { detectOutliers } = require('./helpers/statistics')
 
 const path = require('path')
 const app = express()
 
 /**
- * Handles file upload, processes CSV data to detect outliers, and imports data into the database.
+ * Handles file upload, processes CSV data to detect outliers, and imports data into the test_table.
  * 
  * @route POST /upload
  * @param {object} req - Express request object, containing the uploaded file.
@@ -43,6 +43,32 @@ app.post('/upload', upload.single('file'), async (req, res) => {
     res.status(200).json({
       status: "success",
       message: 'File successfully processed.'
+    })
+  } catch (err) {
+    // console.error(err);
+    res.status(500).json({
+      status: "error",
+      message: 'Server error.',
+      data: err.message
+    })
+  }
+})
+
+/**
+ * Handles data fetching, get all the data from test_table.
+ * 
+ * @route GET /data
+ * @param {object} res - Express response object, used to send the response.
+ */
+app.get('/data', async (req, res) => {
+  try {
+    // Check for the outliers.
+    const data = await getData()
+
+    res.status(200).json({
+      status: "success",
+      message: 'Data successfully fetched.',
+      data: data
     })
   } catch (err) {
     // console.error(err);
