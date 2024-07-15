@@ -36,6 +36,10 @@ docker-compose up --build
     -   If outliers are detected, returns a JSON object with outlier indices and values.
     -   If no outliers are detected, stores the data in the PostgreSQL database.
 
+-   **Endpoint**: GET `/data`
+-   **Response**:
+    -   Returns a JSON object with array of object data of test_table.
+
 ### Adjusting the Threshold
 
 -   Edit the `.env` file to modify the `threshold` parameter in the `detectOutliers` function for different sensitivity levels.
@@ -44,7 +48,7 @@ docker-compose up --build
 
 - Live Demo
 ```bash
-curl -X POST -F "file=@data.csv" http://demo_url/upload
+curl -X POST -F "file=@data.csv" http://DEMO_URL/upload
 ```
 - Local access (using Docker Compose)
 ```bash
