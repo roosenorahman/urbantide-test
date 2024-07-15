@@ -1,6 +1,6 @@
 # Urbantide Technical Test - CSV to SQL API with Outlier Detection
 
-This project provides a web API to upload a CSV file, perform outlier detection using Z-score analysis, and insert the data into a PostgreSQL database.
+This project provides a web API using Express.js (Node.js) to upload a CSV file, perform outlier detection using Z-score analysis, and insert the data into a PostgreSQL database.
 
 ## Features  
 
