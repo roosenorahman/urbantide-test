@@ -1,0 +1,72 @@
+This Technical Task is to illustrate the thought processes and ability to be able to
+consume data, check data and insert the data into an SQL containerised
+database. Please provide your code via relevant means (such as Github) and a ReadMe 
+file explaining how to run your code. Note your approach, thoughts, any problems
+you encountered and how they were overcome for discussion.
+
+Our platform is progressing towards using Redshift to store and query all
+data sources, this is injected into by multiple different pipelines. Development of
+these pipelines is the primary objective of the successful applicant alongside
+other backend work. Javascript is our primary language throughout using NodeJs
+within our microservice architecture. New sections of the pipeline are constructed
+using Python and Flask. Feel free to use either of these technologies. Our backend
+is setup via docker containers and managed by DCOS and integrated through
+Circle CI.
+
+The task aims to consume data from a csv through a web api, use it to infer and
+create an appropriate table for SQL with the correct data types, perform some
+basic outlier detection on it and insert the data into an SQL container using the
+language of your choice if no outliers are detected. There’s no need to make a
+frontend; you can simply use something like postman to upload the csv to the
+web service.
+We would like you to Dockerize your application and to aid we have provided you
+with a base docker compose file ( use docker-compose to connect the containers)
+to simplify the process to remove the need to configure postgres although feel
+free to use any sql database:
+
+The Test:
+
+You are provided with two test csv files. One that passes and one that fails
+shown here:
+
+==TestOne
+timestamp,value,category
+2022-01-01 00:00:00,10,A
+2022-01-01 01:00:00,12,B
+2022-01-01 02:00:00,11,C
+2022-01-01 03:00:00,13,A
+2022-01-01 04:00:00,9,B
+2022-01-01 05:00:00,10,C
+2022-01-01 06:00:00,12,A
+2022-01-01 07:00:00,11,B
+2022-01-01 08:00:00,13,C
+2022-01-01 09:00:00,10,A
+
+==TestTwo
+timestamp,value,category
+2022-01-01 00:00:00,10,A
+2022-01-01 01:00:00,12,B
+2022-01-01 02:00:00,11,C
+2022-01-01 03:00:00,13,A
+2022-01-01 04:00:00,9,B
+2022-01-01 05:00:00,10,C
+2022-01-01 06:00:00,12,A
+2022-01-01 07:00:00,11,B
+2022-01-01 08:00:00,100,C
+2022-01-01 09:00:00,10,A
+
+============================================================================================================
+
+cek header, harus valid (jangan pake angka di awal atau tanya gpt lagi buat detailnya harus gimana)
+pisahin data dari header
+buat metadata
+cek outlier
+create table
+import table
+return metadata
+
+
+
+
+jangan lupa harus bisa handle dynamic table
+gimana caranya buat programnya di mode easy, agressive dst
