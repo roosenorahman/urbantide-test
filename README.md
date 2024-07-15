@@ -36,6 +36,8 @@ docker-compose up --build
     -   If outliers are detected, returns a JSON object with outlier indices and values.
     -   If no outliers are detected, stores the data in the PostgreSQL database.
 
+### Fetch all data from table
+
 -   **Endpoint**: GET `/data`
 -   **Response**:
     -   Returns a JSON object with array of object data of test_table.
